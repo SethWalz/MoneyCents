@@ -11,9 +11,10 @@ using System;
 namespace MoneyCents.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171220235509_InitialCreate2")]
+    partial class InitialCreate2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -177,98 +178,6 @@ namespace MoneyCents.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("MoneyCents.Models.Deductions", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("Amount");
-
-                    b.Property<DateTime>("LastUpdatedDate");
-
-                    b.Property<int>("Name");
-
-                    b.Property<int>("Percent");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Deductions");
-                });
-
-            modelBuilder.Entity("MoneyCents.Models.Expenses", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("Actual");
-
-                    b.Property<int>("Budgeted");
-
-                    b.Property<string>("Catagory")
-                        .IsRequired();
-
-                    b.Property<DateTime>("LastUpdatedDate");
-
-                    b.Property<string>("Name")
-                        .IsRequired();
-
-                    b.Property<int>("Percent");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Expenses");
-                });
-
-            modelBuilder.Entity("MoneyCents.Models.Pay", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("GrossMonthlyIncome");
-
-                    b.Property<int>("GrossYearlyIncome");
-
-                    b.Property<DateTime>("LastUpdatedDate");
-
-                    b.Property<string>("Name");
-
-                    b.Property<int>("NetMonthly");
-
-                    b.Property<int>("NetYearly");
-
-                    b.Property<int>("TaxableMonthlyGross");
-
-                    b.Property<DateTime>("Year");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Pay");
-                });
-
-            modelBuilder.Entity("MoneyCents.Models.Tax", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("CityWithholding");
-
-                    b.Property<int>("FederalMEDEE");
-
-                    b.Property<int>("FederalOASDIEE");
-
-                    b.Property<int>("FederalWithholding");
-
-                    b.Property<DateTime>("LastUpdatedDate");
-
-                    b.Property<int>("StateWithholding");
-
-                    b.Property<DateTime>("Year");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Tax");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -14,6 +14,10 @@ namespace MoneyCents.Data
             : base(options)
         {
         }
+        public DbSet<Expenses> Expenses { get; set; }
+        public DbSet<Deductions> Deductions { get; set; }
+        public DbSet<Pay> Pay { get; set; }
+        public DbSet<Tax> Tax { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
